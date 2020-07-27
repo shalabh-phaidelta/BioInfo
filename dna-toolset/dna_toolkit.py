@@ -1,5 +1,6 @@
 
 Nucleotides = ["A","C","G","T"]
+DNA_Reverse_Complement = {"A":"T", "T":"A", "C":"G", "G":"C"}
 
 
 def validate_seq(dna_seq):
@@ -17,4 +18,17 @@ def count_nucleotide_freq(seq):
         nucl_freq_dict[nucl] += 1
     
     return nucl_freq_dict
+
+
+def transcription(seq):
+    """ DNA->RNA by replacing T with U"""
+    seq = seq.replace("T", 'U')
+    
+    return seq
+
+
+def reverse_complement(seq):
+    #return transcription(seq[::-1])
+    #return seq.maketrans("ATCG", "TAGC")[::-1]
+    return "".join([DNA_Reverse_Complement[nuc] for nuc in seq])[::-1]
 
