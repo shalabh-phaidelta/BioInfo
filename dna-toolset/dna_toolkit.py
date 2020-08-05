@@ -13,6 +13,7 @@ def validate_seq(dna_seq):
 
 
 def count_nucleotide_freq(seq):
+    """Returns a dict of freq for each base"""
     nucl_freq_dict = {'A':0, 'C':0, 'G':0, 'T':0, }
     for nucl in seq:
         nucl_freq_dict[nucl] += 1
@@ -32,3 +33,15 @@ def reverse_complement(seq):
     #return seq.maketrans("ATCG", "TAGC")[::-1]
     return "".join([DNA_Reverse_Complement[nuc] for nuc in seq])[::-1]
 
+
+def gc_content(seq:list):
+    return round(seq.count('C') + seq.count('G') / len(seq) * 100)
+
+
+def gc_content_subsec(seq:list, window=20):
+    result = []
+    for i in range(0, len(seq) - window + 1, window):
+        subseq = seq[i:i + window]
+        result.append(gc_content(subseq))
+    
+    return result
