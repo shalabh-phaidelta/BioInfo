@@ -35,12 +35,14 @@ def reverse_complement(seq):
 
 
 def gc_content(seq:list):
-    return round(seq.count('C') + seq.count('G') / len(seq) * 100)
+    #print(seq.count('C'))
+    #print(seq.count('G'))
+    return round((seq.count('C') + seq.count('G')) / len(seq) * 100)
 
-
+#70-20+1=51
 def gc_content_subsec(seq:list, window=20):
     result = []
-    for i in range(0, len(seq) - window + 1, window):
+    for i in range(0, len(seq) - window + 1 , window): # len(seq) - window + 1 because in py the last value is not considered
         subseq = seq[i:i + window]
         result.append(gc_content(subseq))
     

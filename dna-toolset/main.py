@@ -5,7 +5,7 @@ from utilities import colored
 
 #test_seq = "ACGTTAGTGATGTG"
 
-rand_seq = ''.join([random.choice(dtlk.Nucleotides) for nuc in range(15)]) # remember, list comprehension goes from right to left
+rand_seq = ''.join([random.choice(dtlk.Nucleotides) for nuc in range(20)]) # remember, list comprehension goes from right to left
 
 print(colored(dtlk.validate_seq(rand_seq.lower())))
 
@@ -20,3 +20,4 @@ print(f"   {''.join(['|' for c in range(len(rand_seq))]) } ")
 print(f"5' {colored(dtlk.reverse_complement(rand_seq))} 3' ") 
 
 print(f"[6] GC Content {dtlk.gc_content(rand_seq)}")
+print(f"[7] GC Subsequence Content {dtlk.gc_content_subsec(rand_seq, 10)}")
