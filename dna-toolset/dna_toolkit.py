@@ -1,3 +1,5 @@
+import structures as structs
+
 
 Nucleotides = ["A","C","G","T"]
 DNA_Reverse_Complement = {"A":"T", "T":"A", "C":"G", "G":"C"}
@@ -42,8 +44,16 @@ def gc_content(seq:list):
 #70-20+1=51
 def gc_content_subsec(seq:list, window=20):
     result = []
-    for i in range(0, len(seq) - window + 1 , window): # len(seq) - window + 1 because in py the last value is not considered
+    for i in range(0, len(seq) - window + 1 , window): # len(seq) - window + 1 because in py the last(stop value in range or list) value is not considered
         subseq = seq[i:i + window]
         result.append(gc_content(subseq))
     
     return result
+
+
+def translate_seq(seq, init_pos=0):
+    return [structs.DNA_Codons[ seq[pos:pos+3] ] for pos in range(init_pos, len(seq)-3,3) ]
+
+
+def codon_usage(seq, amino_acid):    
+    pass

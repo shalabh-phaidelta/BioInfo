@@ -21,3 +21,6 @@ print(f"5' {colored(dtlk.reverse_complement(rand_seq))} 3' ")
 
 print(f"[6] GC Content {dtlk.gc_content(rand_seq)}")
 print(f"[7] GC Subsequence Content {dtlk.gc_content_subsec(rand_seq, 10)}")
+#print(f"[8] Aminoacids sequence from DNA {dtlk.translate_seq(rand_seq)}")
+
+print(dtlk.translate_seq("AAGGTCTC"))
